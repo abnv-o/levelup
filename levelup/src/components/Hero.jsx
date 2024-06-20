@@ -17,7 +17,7 @@ const Hero = () => {
             </a> 
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-<img src="https://thumbs.dreamstime.com/b/vector-football-soccer-player-silhouette-ba-ball-isolated-isolad-white-40100362.jpg"></img>
+<img src="../../public/OIP(1).jpg"></img>
 
         </div>                
     </div>
