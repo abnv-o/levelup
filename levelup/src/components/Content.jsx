@@ -16,8 +16,8 @@ const Content = () => {
           heights. Join us in revolutionizing sports management and be part of a
           vibrant community dedicated to excellence, growth, and success.        </div>
         <div class="grid grid-cols-2 gap-4 mt-8">
-<img src="https://th.bing.com/th/id/OIP.YITOJoyZs52IHpymA2S09wHaFa?rs=1&pid=ImgDetMain"></img>
-<img src="https://th.bing.com/th/id/OIP.LUMgwlYX-ejuu89mPLEzxwAAAA?w=350&h=350&rs=1&pid=ImgDetMain"></img>
+<img src="../../public/b1.webp"></img>
+<img src="../../public/f1.jpg"></img>
         </div>
     </div>
 </section>
