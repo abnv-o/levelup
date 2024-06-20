@@ -1,9 +1,18 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import Content from '../components/Content'
+import Feutures_section from '../components/Feutures_section'
+import  Footer  from '../components/Footer'
 
 const Main = () => {
   return (
     <div>
-        <h1 className='text-blue-500'>hello world</h1>
+        <Navbar/>
+        <Hero/>
+        <Content/>
+        <Feutures_section/>
+        <Footer/>
     </div>
   )
 }
