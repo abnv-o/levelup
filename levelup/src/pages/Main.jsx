@@ -12,7 +12,6 @@ const Main = () => {
         <Hero/>
         <Content/>
         <Feutures_section/>
-        <Footer/>
     </div>
   )
 }
