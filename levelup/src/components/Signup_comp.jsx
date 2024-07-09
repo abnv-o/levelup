@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import  supabase  from '../supabase.js'; // Make sure to import supabase correctly
 
-const Signup_comp = () => {
+const  Signup_comp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
