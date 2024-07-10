@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import supabase from "../supabase";
 import messi_img from "../Images/messi.jpg"; // Ensure you have the correct path
-import Create_Team_Modale from "./Create_Team_Modale";
 
 const Schedule = ({ sessionuser }) => {
   const [selectedSport, setSelectedSport] = useState([]);

@@ -16,13 +16,17 @@ const Signin_comp = () => {
     
     if (error) {
       console.error("Supabase error:", error);
+      alert("An error occurred. Please check your console.");
       return;
+    } else if (users && users.length > 0) {
+      localStorage.setItem('session_user', JSON.stringify(users[0]));
+      console.log(users);
+      navigate('/admin');
+    } else {
+      // Show an alert when user is not found
+      alert("User not found. Please check your username and password.");
     }
-    
-    localStorage.setItem('session_user',JSON.stringify(users[0]));
-    console.log(users)
-    navigate('/admin');
-  };
+};
 
   return (
     <div className="h-screen bg-gray-900 w-screen overflow-hidden">

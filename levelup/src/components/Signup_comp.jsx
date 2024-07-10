@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import  supabase  from '../supabase.js'; // Make sure to import supabase correctly
+import { useNavigate } from 'react-router-dom';
 
 const  Signup_comp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [username, setUsername] = useState('');
+  const [submit, setsubmit] = useState("submit")
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    setsubmit("submitting")
     event.preventDefault();
     console.log("started procedure")
 
@@ -24,7 +28,10 @@ const  Signup_comp = () => {
     } else {
       setMessage('Account created successfully!');
       console.log('Upserted data: ', data);
+      navigate('/signin')
     }
+    
+    setsubmit("submit")
   };
 
   return (
@@ -53,7 +60,7 @@ const  Signup_comp = () => {
                   <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" value={password} onChange={e => setPassword(e.target.value)} />
                 </div>
                 <div>
-                  <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
+                  <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">{submit}</button>
                 </div>
               </form>
               {message && <div className="text-center text-sm mt-2">{message}</div>}
