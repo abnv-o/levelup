@@ -28,6 +28,42 @@ const Schedule = ({ sessionuser }) => {
     fetchtournament();
   }, []);
 
+// the code below is commented out because it is not needed for the simulation but in case!!!
+
+  // Code to enter goals, determine winner, and update database (commented out)
+  /*
+  const updateMatchAndPoints = async (matchId, teamAId, teamAGoals, teamBId, teamBGoals) => {
+    // Determine winner
+    const winner = teamAGoals > teamBGoals ? teamAId : teamBId;
+    const isDraw = teamAGoals === teamBGoals;
+
+    // Update match result in database
+    let { error: matchError } = await supabase
+      .from("matches")
+      .update({ winner: isDraw ? null : winner, isDraw })
+      .eq("id", matchId);
+
+    if (matchError) {
+      console.error("Error updating match result:", matchError);
+      return;
+    }
+
+    // Update points table
+    // This is a simplified example. You'll need to adjust logic based on your points system
+    if (!isDraw) {
+      let { error: pointsError } = await supabase
+        .from("points")
+        .update({ points: 3 }) // Assuming 3 points for a win
+        .eq("team_id", winner);
+
+      if (pointsError) {
+        console.error("Error updating points table:", pointsError);
+      }
+    }
+
+    console.log("Match and points updated successfully");
+  };*/
+
   const generateRoundRobinSchedule = (teams) => {
     const schedule = [];
     const numTeams = teams.length;
