@@ -21,6 +21,7 @@ const TournamentDash = ({ sessionuser }) => {
       .replace(/\s+/g, "_")
       .toLowerCase();
 
+
     const createTableQuery = `
     CREATE TABLE ${tableName}(
     id SERIAL PRIMARY KEY,
@@ -35,10 +36,17 @@ const TournamentDash = ({ sessionuser }) => {
     );
     `;
 
+    const sport=selectedSport.toLowerCase()
+    
+
+
+            
+        
+
     try {
       let { data: tablefetch, error: tablefetcherror } = await supabase
         .from("tournaments")
-        .select("name")
+        .select("name","id")
         .eq("name", tableName);
 
       if (tablefetcherror) throw tablefetcherror;
@@ -58,19 +66,36 @@ const TournamentDash = ({ sessionuser }) => {
         await supabase
           .from("tournaments")
           .insert([{ created_by: sessionuser.id, name: tableName }])
-          .select()
+          .select();
           
 
       if (tournamentdetail_error) throw tournamentdetail_error;
+
+      const tournamentid=tournamentdetail[0].id;
 
       console.log(
         "tournament details inserted successfully:",
         tournamentdetail
       );
+
+      const sporttablename=sport;
+      const { data: sportinsertdata, error: sportinserterror } = await supabase
+      .from(sporttablename)
+      .insert([{ tournament_id: tournamentid }])
+      .select();
+      if (sportinserterror) throw sportinserterror;
+      console.log("Sport inserted successfully:", sportinsertdata);
+      
+
       setmessage("Submitted Successfully")
     } catch (error) {
       console.error("error creating table:", error.message);
     }
+
+    
+
+        
+
   };
 
   return (

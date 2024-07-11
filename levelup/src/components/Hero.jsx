@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Football_img from "../Images/Football.webp"
 const Hero = () => {
   return (
-    <div className='mt-10'>
+    <div className="">
         <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
